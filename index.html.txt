@@ -1,0 +1,834 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bano Qabil | IT Centre</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+:root {
+    --blue: #0755a5;
+    --dark: #06264a;
+    --light: #edf5ff;
+    --green: #65bd45;
+}
+
+body {
+    background: #fff;
+    color: #172b43;
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: white;
+    padding: 15px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 3px 15px #00000012;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: 800;
+    color: var(--blue);
+}
+
+.logo span {
+    color: var(--green);
+}
+
+.nav-links {
+    display: flex;
+    gap: 27px;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--dark);
+    font-weight: 600;
+    transition: .3s;
+}
+
+.nav-links a:hover {
+    color: var(--green);
+}
+
+.btn {
+    background: var(--green);
+    color: white !important;
+    padding: 12px 23px;
+    border-radius: 7px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+    transition: .3s;
+}
+
+.btn:hover {
+    background: #4a9e32;
+    transform: translateY(-3px);
+}
+
+.menu {
+    display: none;
+    font-size: 27px;
+    cursor: pointer;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 570px;
+    padding: 90px 8%;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(120deg,#052c58ed,#0755a5dd),
+    url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1600&q=85');
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+.hero-content {
+    max-width: 650px;
+}
+
+.hero small {
+    color: #a9e88d;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.hero h1 {
+    font-size: clamp(40px,6vw,65px);
+    line-height: 1.12;
+    margin: 20px 0;
+}
+
+.hero h1 span {
+    color: #91dc6e;
+}
+
+.hero p {
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    color: #e1edfa;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn-outline {
+    border: 2px solid white;
+    color: white;
+    padding: 11px 23px;
+    border-radius: 7px;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.btn-outline:hover {
+    background: white;
+    color: var(--blue);
+}
+
+/* STATS */
+
+.stats {
+    background: var(--light);
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    padding: 35px 8%;
+    text-align: center;
+    gap: 20px;
+}
+
+.stat h2 {
+    color: var(--blue);
+    font-size: 32px;
+}
+
+.stat p {
+    color: #63758a;
+    margin-top: 5px;
+}
+
+/* GENERAL SECTIONS */
+
+section {
+    padding: 85px 8%;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.section-heading small {
+    color: var(--green);
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.section-heading h2 {
+    font-size: 36px;
+    color: var(--dark);
+    margin: 12px 0;
+}
+
+.section-heading p {
+    color: #708096;
+    line-height: 1.7;
+}
+
+/* ABOUT */
+
+.about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 55px;
+}
+
+.about img {
+    width: 100%;
+    height: 370px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.about-content h2 {
+    font-size: 35px;
+    color: var(--dark);
+    margin: 15px 0;
+}
+
+.about-content p {
+    color: #68788c;
+    line-height: 1.9;
+    margin-bottom: 20px;
+}
+
+.check {
+    margin: 15px 0;
+    font-weight: 600;
+    color: var(--dark);
+}
+
+/* COURSES */
+
+.courses {
+    background: #f5f9ff;
+}
+
+.course-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 25px;
+}
+
+.course-card {
+    background: white;
+    border-radius: 13px;
+    overflow: hidden;
+    box-shadow: 0 5px 25px #173c6010;
+    transition: .3s;
+}
+
+.course-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px #173c6020;
+}
+
+.course-card img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+}
+
+.course-info {
+    padding: 23px;
+}
+
+.course-info h3 {
+    color: var(--dark);
+    margin-bottom: 12px;
+    font-size: 21px;
+}
+
+.course-info p {
+    color: #748296;
+    line-height: 1.7;
+    min-height: 75px;
+}
+
+.course-info a {
+    display: inline-block;
+    margin-top: 18px;
+    color: var(--blue);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* WHY US */
+
+.why-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 25px;
+}
+
+.why-card {
+    padding: 30px;
+    border-radius: 12px;
+    background: #f5f9ff;
+    text-align: center;
+}
+
+.why-card .icon {
+    font-size: 38px;
+    margin-bottom: 15px;
+}
+
+.why-card h3 {
+    color: var(--dark);
+    margin-bottom: 12px;
+}
+
+.why-card p {
+    color: #718096;
+    line-height: 1.7;
+}
+
+/* CTA */
+
+.cta {
+    background: linear-gradient(120deg,#052c58,#0871ca);
+    color: white;
+    text-align: center;
+}
+
+.cta h2 {
+    font-size: 36px;
+    margin-bottom: 18px;
+}
+
+.cta p {
+    margin-bottom: 28px;
+    line-height: 1.7;
+}
+
+/* TESTIMONIAL */
+
+.testimonials {
+    background: #f5f9ff;
+}
+
+.review {
+    background: white;
+    max-width: 700px;
+    margin: auto;
+    padding: 35px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 25px #0000000b;
+}
+
+.review p {
+    color: #66788d;
+    line-height: 1.8;
+    font-size: 17px;
+}
+
+.review h3 {
+    color: var(--blue);
+    margin-top: 20px;
+}
+
+/* CONTACT */
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 45px;
+}
+
+.contact-info h3 {
+    color: var(--dark);
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+.contact-info p {
+    margin: 18px 0;
+    color: #65778b;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+    padding: 15px;
+    border: 1px solid #dce5ef;
+    border-radius: 7px;
+    outline: none;
+    font-size: 15px;
+    width: 100%;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus,
+.contact-form select:focus {
+    border-color: var(--blue);
+}
+
+.contact-form button {
+    font-size: 16px;
+}
+
+/* FOOTER */
+
+footer {
+    background: #041e3a;
+    color: white;
+    padding: 45px 8% 20px;
+    text-align: center;
+}
+
+footer h2 {
+    color: #8cda69;
+    margin-bottom: 15px;
+}
+
+footer p {
+    color: #b9c9da;
+    line-height: 1.8;
+}
+
+footer .copyright {
+    margin-top: 30px;
+    border-top: 1px solid #ffffff25;
+    padding-top: 20px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px) {
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: white;
+        flex-direction: column;
+        padding: 25px;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .menu {
+        display: block;
+    }
+
+    .course-grid,
+    .why-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .about {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media(max-width:600px) {
+    .stats {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .course-grid,
+    .why-grid,
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    section {
+        padding: 60px 6%;
+    }
+
+    .hero {
+        padding: 75px 6%;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .section-heading h2 {
+        font-size: 29px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">BANO <span>QABIL.</span></div>
+
+    <div class="nav-links" id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#courses">Courses</a>
+        <a href="#why">Why Us</a>
+        <a href="#contact">Contact</a>
+        <a href="#contact" class="btn">Apply Now</a>
+    </div>
+
+    <div class="menu" onclick="toggleMenu()">☰</div>
+</nav>
+
+<!-- HERO -->
+
+<header class="hero" id="home">
+    <div class="hero-content">
+        <small>WELCOME TO BANO QABIL IT CENTRE</small>
+        <h1>Learn Skills.<br>Build Your <span>Future.</span></h1>
+        <p>
+            Empowering young minds with practical IT skills,
+            digital knowledge and opportunities to build a
+            successful future in the technology world.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#courses" class="btn">Explore Courses →</a>
+            <a href="#about" class="btn-outline">Discover More</a>
+        </div>
+    </div>
+</header>
+
+<!-- STATS -->
+
+<div class="stats">
+    <div class="stat">
+        <h2>01</h2>
+        <p>Learn New Skills</p>
+    </div>
+    <div class="stat">
+        <h2>02</h2>
+        <p>Expert Guidance</p>
+    </div>
+    <div class="stat">
+        <h2>03</h2>
+        <p>Practical Learning</p>
+    </div>
+    <div class="stat">
+        <h2>04</h2>
+        <p>Future Ready</p>
+    </div>
+</div>
+
+<!-- ABOUT -->
+
+<section class="about" id="about">
+    <div>
+        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=85" alt="Students learning together">
+    </div>
+
+    <div class="about-content">
+        <small style="color:#65bd45;font-weight:bold;">ABOUT OUR INSTITUTE</small>
+        <h2>Education That Opens New Doors</h2>
+        <p>
+            Bano Qabil is an initiative focused on providing
+            technology education and empowering students with
+            valuable digital skills.
+        </p>
+        <p>
+            Our aim is to help learners explore technology,
+            develop confidence and prepare for opportunities
+            in the digital world.
+        </p>
+
+        <div class="check">✓ Skill-Based Learning</div>
+        <div class="check">✓ Practical Training</div>
+        <div class="check">✓ Career-Focused Education</div>
+
+        <br>
+        <a href="#contact" class="btn">Get in Touch</a>
+    </div>
+</section>
+
+<!-- COURSES -->
+
+<section class="courses" id="courses">
+    <div class="section-heading">
+        <small>WHAT YOU CAN LEARN</small>
+        <h2>Explore Our IT Courses</h2>
+        <p>Discover skills that can help you build your digital future.</p>
+    </div>
+
+    <div class="course-grid">
+
+        <div class="course-card">
+            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=700&q=80" alt="Web development">
+            <div class="course-info">
+                <h3>Web Development</h3>
+                <p>Learn HTML, CSS and JavaScript to create modern websites.</p>
+                <a href="#contact">Learn More →</a>
+            </div>
+        </div>
+
+        <div class="course-card">
+            <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=700&q=80" alt="Programming">
+            <div class="course-info">
+                <h3>Programming</h3>
+                <p>Understand coding fundamentals and develop problem-solving skills.</p>
+                <a href="#contact">Learn More →</a>
+            </div>
+        </div>
+
+        <div class="course-card">
+            <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=700&q=80" alt="Digital marketing">
+            <div class="course-info">
+                <h3>Digital Marketing</h3>
+                <p>Explore social media, online branding and digital marketing strategies.</p>
+                <a href="#contact">Learn More →</a>
+            </div>
+        </div>
+
+        <div class="course-card">
+            <img src="https://images.unsplash.com/photo-1587620962725-abab7fe55159?auto=format&fit=crop&w=700&q=80" alt="Python programming">
+            <div class="course-info">
+                <h3>Python Programming</h3>
+                <p>Start your programming journey with Python and coding projects.</p>
+                <a href="#contact">Learn More →</a>
+            </div>
+        </div>
+
+        <div class="course-card">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=700&q=80" alt="Data analytics">
+            <div class="course-info">
+                <h3>Data Analytics</h3>
+                <p>Learn how to understand data and discover meaningful insights.</p>
+                <a href="#contact">Learn More →</a>
+            </div>
+        </div>
+
+        <div class="course-card">
+            <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=700&q=80" alt="Graphic design">
+            <div class="course-info">
+                <h3>Graphic Designing</h3>
+                <p>Develop creative design skills and learn visual communication.</p>
+                <a href="#contact">Learn More →</a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+
+<section id="why">
+    <div class="section-heading">
+        <small>WHY BANO QABIL</small>
+        <h2>Learn. Grow. Achieve.</h2>
+        <p>Build your skills with a learning-focused environment.</p>
+    </div>
+
+    <div class="why-grid">
+
+        <div class="why-card">
+            <div class="icon">💻</div>
+            <h3>Modern IT Skills</h3>
+            <p>Explore relevant technology and digital skills.</p>
+        </div>
+
+        <div class="why-card">
+            <div class="icon">🎓</div>
+            <h3>Learning Opportunities</h3>
+            <p>Discover opportunities to improve your knowledge.</p>
+        </div>
+
+        <div class="why-card">
+            <div class="icon">🚀</div>
+            <h3>Future Growth</h3>
+            <p>Prepare yourself for a technology-driven world.</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- CTA -->
+
+<section class="cta">
+    <h2>Your Future Starts With One Step!</h2>
+    <p>Start learning today and take a step towards a brighter digital future.</p>
+    <a href="#contact" class="btn">Contact Our Centre →</a>
+</section>
+
+<!-- TESTIMONIAL -->
+
+<section class="testimonials">
+    <div class="section-heading">
+        <small>STUDENT EXPERIENCE</small>
+        <h2>Learning Makes a Difference</h2>
+    </div>
+
+    <div class="review">
+        <p id="reviewText">
+            "Learning new technology skills has helped me
+            become more confident and explore new opportunities."
+        </p>
+        <h3 id="reviewName">Student Experience</h3>
+        <br>
+        <button class="btn" onclick="nextReview()">Next Review →</button>
+    </div>
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact">
+    <div class="section-heading">
+        <small>GET IN TOUCH</small>
+        <h2>Contact Our IT Centre</h2>
+        <p>Have questions? Send us a message.</p>
+    </div>
+
+    <div class="contact-grid">
+
+        <div class="contact-info">
+            <h3>Let's Connect!</h3>
+            <p>📍 Location: Add your IT Centre address</p>
+            <p>📞 Phone: Add your contact number</p>
+            <p>✉️ Email: Add your official email</p>
+            <p>🕒 Timings: Add your class timings</p>
+        </div>
+
+        <form class="contact-form" id="contactForm">
+            <input type="text" id="name" placeholder="Your Full Name" required>
+            <input type="email" id="email" placeholder="Your Email Address" required>
+
+            <select id="course" required>
+                <option value="">Select a Course</option>
+                <option>Web Development</option>
+                <option>Programming</option>
+                <option>Digital Marketing</option>
+                <option>Python Programming</option>
+                <option>Data Analytics</option>
+                <option>Graphic Designing</option>
+            </select>
+
+            <textarea id="message" rows="5" placeholder="Write your message..." required></textarea>
+
+            <button type="submit" class="btn">Send Message →</button>
+        </form>
+
+    </div>
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+    <h2>BANO QABIL IT CENTRE</h2>
+    <p>Empowering Students Through Technology and Education.</p>
+
+    <p class="copyright">
+        © 2026 Bano Qabil IT Centre. All Rights Reserved.
+    </p>
+</footer>
+
+<script>
+
+// MOBILE MENU
+
+function toggleMenu() {
+    document.getElementById("navLinks").classList.toggle("active");
+}
+
+// CLOSE MENU AFTER CLICK
+
+document.querySelectorAll(".nav-links a").forEach(link => {
+    link.addEventListener("click", () => {
+        document.getElementById("navLinks").classList.remove("active");
+    });
+});
+
+// TESTIMONIAL SLIDER
+
+const reviews = [
+    {
+        text: '"Learning new technology skills has helped me become more confident and explore new opportunities."',
+        name: "Student Experience"
+    },
+    {
+        text: '"Practical learning and discovering new digital skills can make a real difference."',
+        name: "Learning Journey"
+    },
+    {
+        text: '"Every new skill is another step towards building a better future."',
+        name: "Student Motivation"
+    }
+];
+
+let reviewIndex = 0;
+
+function nextReview() {
+    reviewIndex = (reviewIndex + 1) % reviews.length;
+
+    document.getElementById("reviewText").textContent =
+        reviews[reviewIndex].text;
+
+    document.getElementById("reviewName").textContent =
+        reviews[reviewIndex].name;
+}
+
+// CONTACT FORM
+
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const course = document.getElementById("course").value;
+    const message = document.getElementById("message").value.trim();
+
+    if (!name || !email || !course || !message) {
+        alert("Please fill in all fields.");
+        return;
+    }
+
+    alert("Thank you, " + name + "! Your form has been validated. Connect a backend or email service to receive submissions.");
+
+    this.reset();
+});
+
+</script>
+
+</body>
+</html>
